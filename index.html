@@ -87,8 +87,6 @@ header {
     font-weight: bold;
 }
 
-/* LOGO PERSONALIZADO */
-
 .logo-mark {
     width: 42px;
     height: 42px;
@@ -125,7 +123,9 @@ header {
     color: #4da3ff;
 }
 
-/* HAMBURGUESA */
+/* =========================
+   HAMBURGUESA
+========================= */
 
 .menu-toggle {
     display: none;
@@ -150,7 +150,7 @@ header {
             rgba(3, 12, 24, 0.72),
             rgba(3, 12, 24, 0.88)
         ),
-        url("img/hero.jpg");
+        url("hero.jpg");
 
     background-size: cover;
     background-position: center;
@@ -265,14 +265,10 @@ header {
 .about-image {
     width: 100%;
     aspect-ratio: 1894 / 1347;
-
     border-radius: 22px;
     overflow: hidden;
-
     background: #0d2034;
-
     border: 1px solid rgba(255,255,255,0.08);
-
     box-shadow: 0 20px 60px rgba(0,0,0,0.35);
 }
 
@@ -280,7 +276,6 @@ header {
     width: 100%;
     height: 100%;
     display: block;
-
     object-fit: cover;
     object-position: center;
 }
@@ -459,7 +454,9 @@ header {
     color: #c7d5e3;
 }
 
-/* ENLACES DE CONTACTO */
+.contact-info strong {
+    color: white;
+}
 
 .contact-info a {
     color: #c7d5e3;
@@ -477,10 +474,6 @@ header {
 
 .contact-info .whatsapp-link:hover {
     color: #5ee78d;
-}
-
-.contact-info strong {
-    color: white;
 }
 
 /* =========================
@@ -712,7 +705,7 @@ footer strong {
         <a href="#inicio" class="logo">
 
             <div class="logo-mark">
-                <img src="img/logo.png" alt="Logo Reformas Mari&Luis">
+                <img src="logo.png" alt="Logo Reformas Mari&Luis">
             </div>
 
             Reformas Mari&Luis S.L.
@@ -893,7 +886,7 @@ footer strong {
             <div class="about-image reveal">
 
                 <img
-                    src="img/nosotros.png"
+                    src="nosotros.png"
                     alt="Reformas Mari&Luis"
                 >
 
@@ -958,24 +951,32 @@ footer strong {
         <div class="gallery">
 
             <div class="gallery-item reveal">
+
                 <img
-                    src="img/obra1.jpg"
+                    src="obra1.jpg"
                     alt="Proyecto de reforma 1"
                 >
+
             </div>
 
+
             <div class="gallery-item reveal">
+
                 <img
-                    src="img/obra2.jpg"
+                    src="obra2.jpg"
                     alt="Proyecto de reforma 2"
                 >
+
             </div>
 
+
             <div class="gallery-item reveal">
+
                 <img
-                    src="img/obra3.jpg"
+                    src="obra3.jpg"
                     alt="Proyecto de reforma 3"
                 >
+
             </div>
 
         </div>
@@ -1118,6 +1119,7 @@ footer strong {
 
                     <li>
                         📞 <strong>Teléfono:</strong>
+
                         <a href="tel:+34664745529">
                             +34 664 74 55 29
                         </a>
@@ -1128,6 +1130,7 @@ footer strong {
 
                     <li>
                         📧 <strong>Email:</strong>
+
                         <a
                             href="https://mail.google.com/mail/?view=cm&fs=1&to=reformasmariyluis@gmail.com"
                             target="_blank"
@@ -1142,6 +1145,7 @@ footer strong {
 
                     <li>
                         📱 <strong>WhatsApp:</strong>
+
                         <a
                             class="whatsapp-link"
                             href="https://wa.me/34664745529"
@@ -1165,9 +1169,6 @@ footer strong {
                     Cuéntanos qué reforma tienes en mente,
                     qué necesitas y qué resultado buscas.
                 </p>
-
-
-                <!-- BOTÓN WHATSAPP -->
 
                 <a
                     href="https://wa.me/34664745529"
