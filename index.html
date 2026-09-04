@@ -9,6 +9,7 @@
 <meta name="description" content="Reformas Mari&Luis S.L. Especialistas en reformas, obras, interiores y proyectos de construcción. Tu proyecto, nuestra pasión.">
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +26,7 @@ body {
     color: #ffffff;
     line-height: 1.6;
 }
+
 
 /* =========================
    GENERAL
@@ -55,6 +57,7 @@ section {
     font-size: 18px;
 }
 
+
 /* =========================
    HEADER
 ========================= */
@@ -65,13 +68,17 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
+
     background: rgba(5, 15, 28, 0.92);
+
     backdrop-filter: blur(12px);
+
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .navbar {
     height: 78px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,9 +87,13 @@ header {
 .logo {
     display: flex;
     align-items: center;
+
     gap: 12px;
+
     text-decoration: none;
+
     color: white;
+
     font-size: 19px;
     font-weight: bold;
 }
@@ -90,32 +101,44 @@ header {
 .logo-mark {
     width: 42px;
     height: 42px;
+
     border-radius: 11px;
+
     overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: white;
+
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+
     flex-shrink: 0;
 }
 
 .logo-mark img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
 
 .nav-links {
     display: flex;
+
     gap: 30px;
+
     list-style: none;
 }
 
 .nav-links a {
     color: #dce8f5;
+
     text-decoration: none;
+
     font-weight: 500;
+
     transition: 0.3s;
 }
 
@@ -123,16 +146,21 @@ header {
     color: #4da3ff;
 }
 
+
 /* =========================
    HAMBURGUESA
 ========================= */
 
 .menu-toggle {
     display: none;
+
     font-size: 30px;
+
     cursor: pointer;
+
     color: white;
 }
+
 
 /* =========================
    HERO
@@ -140,9 +168,12 @@ header {
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
+
     position: relative;
+
     overflow: hidden;
 
     background:
@@ -153,17 +184,21 @@ header {
         url("hero.jpg");
 
     background-size: cover;
+
     background-position: center;
 }
 
 .hero-content {
     max-width: 800px;
+
     padding-top: 70px;
 }
 
 .hero h1 {
     font-size: clamp(45px, 7vw, 82px);
+
     line-height: 1.05;
+
     margin-bottom: 25px;
 }
 
@@ -173,37 +208,53 @@ header {
 
 .hero p {
     font-size: 21px;
+
     color: #c6d4e4;
+
     margin-bottom: 35px;
+
     max-width: 650px;
 }
 
 .btn {
     display: inline-block;
+
     padding: 15px 28px;
+
     border-radius: 10px;
+
     background: #168cff;
+
     color: white;
+
     text-decoration: none;
+
     font-weight: bold;
+
     transition: 0.3s;
+
     margin-right: 10px;
 }
 
 .btn:hover {
     transform: translateY(-3px);
+
     background: #0878df;
-    box-shadow: 0 10px 30px rgba(22,140,255,0.25);
+
+    box-shadow:
+        0 10px 30px rgba(22,140,255,0.25);
 }
 
 .btn-secondary {
     background: transparent;
+
     border: 1px solid rgba(255,255,255,0.25);
 }
 
 .btn-secondary:hover {
     background: rgba(255,255,255,0.08);
 }
+
 
 /* =========================
    SERVICIOS
@@ -215,37 +266,49 @@ header {
 
 .services-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .service-card {
     background: #0d2034;
+
     border: 1px solid rgba(255,255,255,0.07);
+
     border-radius: 18px;
+
     padding: 35px;
+
     transition: 0.35s;
 }
 
 .service-card:hover {
     transform: translateY(-8px);
+
     border-color: rgba(63,167,255,0.4);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
 }
 
 .service-icon {
     font-size: 42px;
+
     margin-bottom: 20px;
 }
 
 .service-card h3 {
     font-size: 23px;
+
     margin-bottom: 12px;
 }
 
 .service-card p {
     color: #aebdce;
 }
+
 
 /* =========================
    NOSOTROS
@@ -257,56 +320,78 @@ header {
 
 .about-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 60px;
+
     align-items: center;
 }
 
 .about-image {
     width: 100%;
+
     aspect-ratio: 1894 / 1347;
+
     border-radius: 22px;
+
     overflow: hidden;
+
     background: #0d2034;
+
     border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.35);
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
+
     display: block;
+
     object-fit: cover;
+
     object-position: center;
 }
 
 .about-text h2 {
     font-size: 42px;
+
     margin-bottom: 20px;
 }
 
 .about-text p {
     color: #b7c6d6;
+
     margin-bottom: 18px;
+
     font-size: 17px;
 }
 
 .about-list {
     list-style: none;
+
     margin-top: 25px;
 }
 
 .about-list li {
     margin-bottom: 12px;
+
     color: #dce8f5;
 }
 
 .about-list li::before {
     content: "✓";
+
     color: #3fa7ff;
+
     font-weight: bold;
+
     margin-right: 10px;
 }
+
 
 /* =========================
    PROYECTOS
@@ -318,23 +403,32 @@ header {
 
 .gallery {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 20px;
 }
 
 .gallery-item {
     height: 300px;
+
     border-radius: 18px;
+
     overflow: hidden;
+
     cursor: pointer;
+
     position: relative;
+
     border: 1px solid rgba(255,255,255,0.07);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     transition: 0.5s;
 }
 
@@ -344,20 +438,185 @@ header {
 
 .gallery-item::after {
     content: "Ver proyecto";
+
     position: absolute;
+
     inset: 0;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     background: rgba(0,0,0,0.45);
+
     opacity: 0;
+
     transition: 0.3s;
+
     font-weight: bold;
 }
 
 .gallery-item:hover::after {
     opacity: 1;
 }
+
+
+/* =========================
+   ANTES Y DESPUÉS
+========================= */
+
+.before-after {
+    background: #07111f;
+}
+
+.before-after-container {
+    max-width: 1000px;
+
+    margin: auto;
+
+    position: relative;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.45);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    user-select: none;
+}
+
+.before-after-image {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #0d2034;
+}
+
+.before-after-image img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+}
+
+.after-image {
+    clip-path: inset(0 0 0 50%);
+}
+
+.before-after-label {
+    position: absolute;
+
+    top: 20px;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    background: rgba(0,0,0,0.65);
+
+    backdrop-filter: blur(8px);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+    z-index: 5;
+}
+
+.before-label {
+    left: 20px;
+}
+
+.after-label {
+    right: 20px;
+}
+
+.before-after-slider {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 4px;
+
+    background: white;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    cursor: ew-resize;
+
+    box-shadow:
+        0 0 12px rgba(0,0,0,0.5);
+}
+
+.before-after-slider::before {
+    content: "↔";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #168cff;
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.4);
+}
+
+.before-after-info {
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+.before-after-info p {
+    color: #aebdce;
+
+    font-size: 16px;
+}
+
 
 /* =========================
    POR QUÉ NOSOTROS
@@ -369,20 +628,27 @@ header {
 
 .why-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 20px;
 }
 
 .why-card {
     padding: 30px;
+
     text-align: center;
+
     background: #0d2034;
+
     border-radius: 18px;
+
     border: 1px solid rgba(255,255,255,0.06);
 }
 
 .why-card .number {
     font-size: 40px;
+
     margin-bottom: 15px;
 }
 
@@ -393,6 +659,7 @@ header {
 .why-card p {
     color: #aebdce;
 }
+
 
 /* =========================
    CTA
@@ -405,19 +672,24 @@ header {
             rgba(13,100,180,0.85),
             rgba(5,31,59,0.95)
         );
+
     text-align: center;
 }
 
 .cta h2 {
     font-size: 48px;
+
     margin-bottom: 15px;
 }
 
 .cta p {
     color: #d9e8f7;
+
     font-size: 19px;
+
     margin-bottom: 30px;
 }
+
 
 /* =========================
    CONTACTO
@@ -429,19 +701,25 @@ header {
 
 .contact-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 30px;
 }
 
 .contact-card {
     background: #0d2034;
+
     padding: 35px;
+
     border-radius: 18px;
+
     border: 1px solid rgba(255,255,255,0.06);
 }
 
 .contact-card h3 {
     margin-bottom: 20px;
+
     font-size: 25px;
 }
 
@@ -451,6 +729,7 @@ header {
 
 .contact-info li {
     margin-bottom: 18px;
+
     color: #c7d5e3;
 }
 
@@ -460,7 +739,9 @@ header {
 
 .contact-info a {
     color: #c7d5e3;
+
     text-decoration: none;
+
     transition: 0.3s;
 }
 
@@ -476,14 +757,18 @@ header {
     color: #5ee78d;
 }
 
+
 /* =========================
    FOOTER
 ========================= */
 
 footer {
     background: #040b14;
+
     padding: 30px 0;
+
     text-align: center;
+
     color: #8fa1b3;
 }
 
@@ -491,12 +776,14 @@ footer strong {
     color: white;
 }
 
+
 /* =========================
    WHATSAPP
 ========================= */
 
 .whatsapp {
     position: fixed;
+
     right: 25px;
     bottom: 25px;
 
@@ -508,10 +795,12 @@ footer strong {
     background: #25D366;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.35);
 
     z-index: 999;
 
@@ -525,8 +814,10 @@ footer strong {
 .whatsapp svg {
     width: 34px;
     height: 34px;
+
     fill: white;
 }
+
 
 /* =========================
    LIGHTBOX
@@ -534,10 +825,13 @@ footer strong {
 
 .lightbox {
     position: fixed;
+
     inset: 0;
+
     background: rgba(0,0,0,0.92);
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
@@ -553,20 +847,26 @@ footer strong {
 .lightbox img {
     max-width: 90%;
     max-height: 85vh;
+
     border-radius: 15px;
-    box-shadow: 0 20px 70px rgba(0,0,0,0.6);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,0.6);
 }
 
 .lightbox-close {
     position: absolute;
+
     top: 20px;
     right: 30px;
 
     font-size: 45px;
+
     color: white;
 
     cursor: pointer;
 }
+
 
 /* =========================
    ANIMACIONES
@@ -574,14 +874,18 @@ footer strong {
 
 .reveal {
     opacity: 0;
+
     transform: translateY(35px);
+
     transition: 0.8s ease;
 }
 
 .reveal.visible {
     opacity: 1;
+
     transform: translateY(0);
 }
+
 
 /* =========================
    RESPONSIVE
@@ -610,6 +914,7 @@ footer strong {
     }
 }
 
+
 @media (max-width: 700px) {
 
     section {
@@ -626,12 +931,14 @@ footer strong {
 
     .nav-links {
         position: absolute;
+
         top: 70px;
         left: 0;
 
         width: 100%;
 
         flex-direction: column;
+
         gap: 0;
 
         background: #07111f;
@@ -651,6 +958,7 @@ footer strong {
 
     .nav-links a {
         display: block;
+
         padding: 18px 5%;
     }
 
@@ -686,45 +994,117 @@ footer strong {
     .whatsapp {
         width: 58px;
         height: 58px;
+
         right: 18px;
         bottom: 18px;
     }
+
+    .before-after-label {
+        top: 12px;
+
+        padding: 7px 10px;
+
+        font-size: 11px;
+    }
+
+    .before-label {
+        left: 12px;
+    }
+
+    .after-label {
+        right: 12px;
+    }
+
+    .before-after-slider {
+        width: 3px;
+    }
+
+    .before-after-slider::before {
+        width: 42px;
+        height: 42px;
+
+        font-size: 18px;
+    }
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
 ========================= -->
 
 <header>
+
     <div class="container navbar">
 
         <a href="#inicio" class="logo">
 
             <div class="logo-mark">
-                <img src="logo.png" alt="Logo Reformas Mari&Luis">
+
+                <img
+                    src="logo.png"
+                    alt="Logo Reformas Mari&Luis"
+                >
+
             </div>
 
             Reformas Mari&Luis S.L.
 
         </a>
 
+
         <div class="menu-toggle" id="menuToggle">
             ☰
         </div>
 
+
         <ul class="nav-links" id="navLinks">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+
+            <li>
+                <a href="#inicio">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="#servicios">
+                    Servicios
+                </a>
+            </li>
+
+            <li>
+                <a href="#nosotros">
+                    Nosotros
+                </a>
+            </li>
+
+            <li>
+                <a href="#proyectos">
+                    Proyectos
+                </a>
+            </li>
+
+            <li>
+                <a href="#antes-despues">
+                    Antes y después
+                </a>
+            </li>
+
+            <li>
+                <a href="#contacto">
+                    Contacto
+                </a>
+            </li>
+
         </ul>
 
     </div>
+
 </header>
 
 
@@ -739,20 +1119,36 @@ footer strong {
         <div class="hero-content reveal">
 
             <h1>
+
                 Transformamos espacios.<br>
-                <span>Creamos hogares.</span>
+
+                <span>
+                    Creamos hogares.
+                </span>
+
             </h1>
 
+
             <p>
+
                 En Reformas Mari&Luis S.L. convertimos tus ideas
                 en proyectos reales, cuidando cada detalle.
+
             </p>
 
-            <a href="#contacto" class="btn">
+
+            <a
+                href="#contacto"
+                class="btn"
+            >
                 Solicitar presupuesto
             </a>
 
-            <a href="#proyectos" class="btn btn-secondary">
+
+            <a
+                href="#proyectos"
+                class="btn btn-secondary"
+            >
                 Ver proyectos
             </a>
 
@@ -767,13 +1163,18 @@ footer strong {
      SERVICIOS
 ========================= -->
 
-<section class="services" id="servicios">
+<section
+    class="services"
+    id="servicios"
+>
 
     <div class="container">
 
         <div class="section-title reveal">
 
-            <h2>Nuestros servicios</h2>
+            <h2>
+                Nuestros servicios
+            </h2>
 
             <p>
                 Soluciones profesionales para todo tipo de reformas.
@@ -781,13 +1182,19 @@ footer strong {
 
         </div>
 
+
         <div class="services-grid">
+
 
             <div class="service-card reveal">
 
-                <div class="service-icon">🏠</div>
+                <div class="service-icon">
+                    🏠
+                </div>
 
-                <h3>Reformas integrales</h3>
+                <h3>
+                    Reformas integrales
+                </h3>
 
                 <p>
                     Nos encargamos de transformar completamente
@@ -799,9 +1206,13 @@ footer strong {
 
             <div class="service-card reveal">
 
-                <div class="service-icon">🔨</div>
+                <div class="service-icon">
+                    🔨
+                </div>
 
-                <h3>Albañilería</h3>
+                <h3>
+                    Albañilería
+                </h3>
 
                 <p>
                     Trabajos de albañilería realizados con precisión
@@ -813,9 +1224,13 @@ footer strong {
 
             <div class="service-card reveal">
 
-                <div class="service-icon">🎨</div>
+                <div class="service-icon">
+                    🎨
+                </div>
 
-                <h3>Pintura y acabados</h3>
+                <h3>
+                    Pintura y acabados
+                </h3>
 
                 <p>
                     Acabados cuidados para conseguir el resultado
@@ -827,9 +1242,13 @@ footer strong {
 
             <div class="service-card reveal">
 
-                <div class="service-icon">🚿</div>
+                <div class="service-icon">
+                    🚿
+                </div>
 
-                <h3>Baños</h3>
+                <h3>
+                    Baños
+                </h3>
 
                 <p>
                     Renovación y modernización de baños adaptados
@@ -841,9 +1260,13 @@ footer strong {
 
             <div class="service-card reveal">
 
-                <div class="service-icon">🍳</div>
+                <div class="service-icon">
+                    🍳
+                </div>
 
-                <h3>Cocinas</h3>
+                <h3>
+                    Cocinas
+                </h3>
 
                 <p>
                     Diseñamos y reformamos cocinas funcionales,
@@ -855,9 +1278,13 @@ footer strong {
 
             <div class="service-card reveal">
 
-                <div class="service-icon">🏢</div>
+                <div class="service-icon">
+                    🏢
+                </div>
 
-                <h3>Locales y negocios</h3>
+                <h3>
+                    Locales y negocios
+                </h3>
 
                 <p>
                     Reformas para negocios y espacios profesionales
@@ -865,6 +1292,7 @@ footer strong {
                 </p>
 
             </div>
+
 
         </div>
 
@@ -877,11 +1305,15 @@ footer strong {
      NOSOTROS
 ========================= -->
 
-<section class="about" id="nosotros">
+<section
+    class="about"
+    id="nosotros"
+>
 
     <div class="container">
 
         <div class="about-grid">
+
 
             <div class="about-image reveal">
 
@@ -895,12 +1327,16 @@ footer strong {
 
             <div class="about-text reveal">
 
-                <h2>Sobre nosotros</h2>
+                <h2>
+                    Sobre nosotros
+                </h2>
+
 
                 <p>
                     En Reformas Mari&Luis S.L. trabajamos para hacer
                     realidad los proyectos de nuestros clientes.
                 </p>
+
 
                 <p>
                     Apostamos por un trabajo cuidado, cercano y
@@ -908,19 +1344,29 @@ footer strong {
                     durante todo el proceso.
                 </p>
 
+
                 <ul class="about-list">
 
-                    <li>Trabajo profesional</li>
+                    <li>
+                        Trabajo profesional
+                    </li>
 
-                    <li>Atención personalizada</li>
+                    <li>
+                        Atención personalizada
+                    </li>
 
-                    <li>Materiales de calidad</li>
+                    <li>
+                        Materiales de calidad
+                    </li>
 
-                    <li>Compromiso con cada proyecto</li>
+                    <li>
+                        Compromiso con cada proyecto
+                    </li>
 
                 </ul>
 
             </div>
+
 
         </div>
 
@@ -933,13 +1379,18 @@ footer strong {
      PROYECTOS
 ========================= -->
 
-<section class="projects" id="proyectos">
+<section
+    class="projects"
+    id="proyectos"
+>
 
     <div class="container">
 
         <div class="section-title reveal">
 
-            <h2>Algunos de nuestros proyectos</h2>
+            <h2>
+                Algunos de nuestros proyectos
+            </h2>
 
             <p>
                 Una pequeña muestra de nuestro trabajo.
@@ -949,6 +1400,7 @@ footer strong {
 
 
         <div class="gallery">
+
 
             <div class="gallery-item reveal">
 
@@ -979,6 +1431,95 @@ footer strong {
 
             </div>
 
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ANTES Y DESPUÉS
+========================= -->
+
+<section
+    class="before-after"
+    id="antes-despues"
+>
+
+    <div class="container">
+
+
+        <div class="section-title reveal">
+
+            <h2>
+                Antes y después
+            </h2>
+
+            <p>
+                Descubre cómo transformamos los espacios.
+            </p>
+
+        </div>
+
+
+        <div class="before-after-container reveal">
+
+
+            <div class="before-after-image"
+                 id="beforeAfter">
+
+
+                <!-- IMAGEN DESPUÉS -->
+
+                <img
+                    src="despues.jpg"
+                    alt="Después de la reforma"
+                    class="after-image"
+                    id="afterImage"
+                >
+
+
+                <!-- IMAGEN ANTES -->
+
+                <img
+                    src="antes.jpg"
+                    alt="Antes de la reforma"
+                >
+
+
+                <!-- ETIQUETAS -->
+
+                <div class="before-after-label before-label">
+                    ANTES
+                </div>
+
+
+                <div class="before-after-label after-label">
+                    DESPUÉS
+                </div>
+
+
+                <!-- BARRA -->
+
+                <div
+                    class="before-after-slider"
+                    id="beforeAfterSlider"
+                ></div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="before-after-info reveal">
+
+            <p>
+                👆 Desliza la barra para comparar el resultado.
+            </p>
+
         </div>
 
     </div>
@@ -994,9 +1535,12 @@ footer strong {
 
     <div class="container">
 
+
         <div class="section-title reveal">
 
-            <h2>¿Por qué elegirnos?</h2>
+            <h2>
+                ¿Por qué elegirnos?
+            </h2>
 
             <p>
                 Queremos que tu reforma sea una experiencia sencilla.
@@ -1007,11 +1551,16 @@ footer strong {
 
         <div class="why-grid">
 
+
             <div class="why-card reveal">
 
-                <div class="number">01</div>
+                <div class="number">
+                    01
+                </div>
 
-                <h3>Experiencia</h3>
+                <h3>
+                    Experiencia
+                </h3>
 
                 <p>
                     Cuidamos cada proyecto desde el primer momento.
@@ -1022,9 +1571,13 @@ footer strong {
 
             <div class="why-card reveal">
 
-                <div class="number">02</div>
+                <div class="number">
+                    02
+                </div>
 
-                <h3>Calidad</h3>
+                <h3>
+                    Calidad
+                </h3>
 
                 <p>
                     Buscamos resultados duraderos y bien terminados.
@@ -1035,9 +1588,13 @@ footer strong {
 
             <div class="why-card reveal">
 
-                <div class="number">03</div>
+                <div class="number">
+                    03
+                </div>
 
-                <h3>Compromiso</h3>
+                <h3>
+                    Compromiso
+                </h3>
 
                 <p>
                     Nos involucramos en cada fase de la reforma.
@@ -1048,15 +1605,20 @@ footer strong {
 
             <div class="why-card reveal">
 
-                <div class="number">04</div>
+                <div class="number">
+                    04
+                </div>
 
-                <h3>Cercanía</h3>
+                <h3>
+                    Cercanía
+                </h3>
 
                 <p>
                     Estamos disponibles para resolver tus dudas.
                 </p>
 
             </div>
+
 
         </div>
 
@@ -1073,13 +1635,18 @@ footer strong {
 
     <div class="container reveal">
 
-        <h2>¿Tienes un proyecto en mente?</h2>
+        <h2>
+            ¿Tienes un proyecto en mente?
+        </h2>
 
         <p>
             Cuéntanos tu idea y empezamos a hacerla realidad.
         </p>
 
-        <a href="#contacto" class="btn">
+        <a
+            href="#contacto"
+            class="btn"
+        >
             Contactar
         </a>
 
@@ -1092,13 +1659,19 @@ footer strong {
      CONTACTO
 ========================= -->
 
-<section class="contact" id="contacto">
+<section
+    class="contact"
+    id="contacto"
+>
 
     <div class="container">
 
+
         <div class="section-title reveal">
 
-            <h2>Contacto</h2>
+            <h2>
+                Contacto
+            </h2>
 
             <p>
                 Estamos aquí para ayudarte con tu próximo proyecto.
@@ -1109,27 +1682,41 @@ footer strong {
 
         <div class="contact-grid">
 
+
             <div class="contact-card reveal">
 
-                <h3>Hablemos</h3>
+                <h3>
+                    Hablemos
+                </h3>
+
 
                 <ul class="contact-info">
+
 
                     <!-- TELÉFONO -->
 
                     <li>
-                        📞 <strong>Teléfono:</strong>
 
-                        <a href="tel:+34664745529">
+                        📞 <strong>
+                            Teléfono:
+                        </strong>
+
+                        <a
+                            href="tel:+34664745529"
+                        >
                             +34 664 74 55 29
                         </a>
+
                     </li>
 
 
                     <!-- GMAIL -->
 
                     <li>
-                        📧 <strong>Email:</strong>
+
+                        📧 <strong>
+                            Email:
+                        </strong>
 
                         <a
                             href="https://mail.google.com/mail/?view=cm&fs=1&to=reformasmariyluis@gmail.com"
@@ -1138,13 +1725,17 @@ footer strong {
                         >
                             reformasmariyluis@gmail.com
                         </a>
+
                     </li>
 
 
                     <!-- WHATSAPP -->
 
                     <li>
-                        📱 <strong>WhatsApp:</strong>
+
+                        📱 <strong>
+                            WhatsApp:
+                        </strong>
 
                         <a
                             class="whatsapp-link"
@@ -1154,7 +1745,9 @@ footer strong {
                         >
                             Contacta directamente con nosotros
                         </a>
+
                     </li>
+
 
                 </ul>
 
@@ -1163,12 +1756,18 @@ footer strong {
 
             <div class="contact-card reveal">
 
-                <h3>Tu proyecto, nuestra pasión</h3>
+                <h3>
+                    Tu proyecto, nuestra pasión
+                </h3>
 
-                <p style="color:#aebdce; margin-bottom:25px;">
+
+                <p
+                    style="color:#aebdce; margin-bottom:25px;"
+                >
                     Cuéntanos qué reforma tienes en mente,
                     qué necesitas y qué resultado buscas.
                 </p>
+
 
                 <a
                     href="https://wa.me/34664745529"
@@ -1180,6 +1779,7 @@ footer strong {
                 </a>
 
             </div>
+
 
         </div>
 
@@ -1197,9 +1797,15 @@ footer strong {
     <div class="container">
 
         <p>
+
             © 2026
-            <strong>Reformas Mari&Luis S.L.</strong>
+
+            <strong>
+                Reformas Mari&Luis S.L.
+            </strong>
+
             · Tu proyecto, nuestra pasión
+
         </p>
 
     </div>
@@ -1236,11 +1842,18 @@ footer strong {
      LIGHTBOX
 ========================= -->
 
-<div class="lightbox" id="lightbox">
+<div
+    class="lightbox"
+    id="lightbox"
+>
 
-    <span class="lightbox-close" id="lightboxClose">
+    <span
+        class="lightbox-close"
+        id="lightboxClose"
+    >
         ×
     </span>
+
 
     <img
         id="lightboxImage"
@@ -1253,12 +1866,17 @@ footer strong {
 
 <script>
 
+
 /* =========================
    MENÚ MÓVIL
 ========================= */
 
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
 
 menuToggle.addEventListener("click", () => {
 
@@ -1267,46 +1885,51 @@ menuToggle.addEventListener("click", () => {
 });
 
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
 
-    link.addEventListener("click", () => {
+        link.addEventListener("click", () => {
 
-        navLinks.classList.remove("active");
+            navLinks.classList.remove("active");
+
+        });
 
     });
-
-});
 
 
 /* =========================
    SCROLL REVEAL
 ========================= */
 
-const reveals = document.querySelectorAll(".reveal");
+const reveals =
+    document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
 
-    entries => {
+const observer =
+    new IntersectionObserver(
 
-        entries.forEach(entry => {
+        entries => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-                entry.target.classList.add("visible");
+                if (entry.isIntersecting) {
 
-                observer.unobserve(entry.target);
+                    entry.target.classList.add("visible");
 
-            }
+                    observer.unobserve(entry.target);
 
-        });
+                }
 
-    },
+            });
 
-    {
-        threshold: 0.12
-    }
+        },
 
-);
+        {
+            threshold: 0.12
+        }
+
+    );
 
 
 reveals.forEach(element => {
@@ -1320,22 +1943,28 @@ reveals.forEach(element => {
    LIGHTBOX
 ========================= */
 
-const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryItems =
+    document.querySelectorAll(".gallery-item");
 
-const lightbox = document.getElementById("lightbox");
+const lightbox =
+    document.getElementById("lightbox");
 
-const lightboxImage = document.getElementById("lightboxImage");
+const lightboxImage =
+    document.getElementById("lightboxImage");
 
-const lightboxClose = document.getElementById("lightboxClose");
+const lightboxClose =
+    document.getElementById("lightboxClose");
 
 
 galleryItems.forEach(item => {
 
     item.addEventListener("click", () => {
 
-        const image = item.querySelector("img");
+        const image =
+            item.querySelector("img");
 
-        lightboxImage.src = image.src;
+        lightboxImage.src =
+            image.src;
 
         lightbox.classList.add("active");
 
@@ -1371,6 +2000,135 @@ document.addEventListener("keydown", event => {
     }
 
 });
+
+
+/* =========================
+   ANTES Y DESPUÉS
+========================= */
+
+const beforeAfter =
+    document.getElementById("beforeAfter");
+
+const afterImage =
+    document.getElementById("afterImage");
+
+const slider =
+    document.getElementById("beforeAfterSlider");
+
+
+let dragging = false;
+
+
+/* =========================
+   ACTUALIZAR POSICIÓN
+========================= */
+
+function updateBeforeAfter(clientX) {
+
+    const rect =
+        beforeAfter.getBoundingClientRect();
+
+    let position =
+        ((clientX - rect.left) / rect.width) * 100;
+
+
+    position =
+        Math.max(0, Math.min(100, position));
+
+
+    afterImage.style.clipPath =
+        `inset(0 0 0 ${position}%)`;
+
+
+    slider.style.left =
+        `${position}%`;
+
+}
+
+
+/* =========================
+   RATÓN
+========================= */
+
+slider.addEventListener("mousedown", () => {
+
+    dragging = true;
+
+});
+
+
+document.addEventListener("mouseup", () => {
+
+    dragging = false;
+
+});
+
+
+document.addEventListener("mousemove", event => {
+
+    if (!dragging) return;
+
+    updateBeforeAfter(event.clientX);
+
+});
+
+
+/* =========================
+   CLIC EN LA IMAGEN
+========================= */
+
+beforeAfter.addEventListener("mousedown", event => {
+
+    updateBeforeAfter(event.clientX);
+
+    dragging = true;
+
+});
+
+
+/* =========================
+   MÓVIL / TÁCTIL
+========================= */
+
+slider.addEventListener("touchstart", event => {
+
+    dragging = true;
+
+    event.preventDefault();
+
+}, { passive: false });
+
+
+document.addEventListener("touchend", () => {
+
+    dragging = false;
+
+});
+
+
+document.addEventListener("touchmove", event => {
+
+    if (!dragging) return;
+
+    const touch =
+        event.touches[0];
+
+    updateBeforeAfter(touch.clientX);
+
+}, { passive: false });
+
+
+beforeAfter.addEventListener("touchstart", event => {
+
+    const touch =
+        event.touches[0];
+
+    updateBeforeAfter(touch.clientX);
+
+    dragging = true;
+
+}, { passive: true });
+
 
 </script>
 
