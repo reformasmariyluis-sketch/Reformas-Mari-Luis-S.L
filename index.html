@@ -1,1226 +1,1050 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reformas Mari&Luis S.L. | Tu proyecto, nuestra pasión</title>
+
+    <meta name="description"
+          content="Reformas Mari&Luis S.L. - Reformas integrales, cocinas, baños y mucho más. Tu proyecto, nuestra pasión.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #16324f;
+            background: #f5f8fb;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+
+            background: rgba(8, 37, 63, 0.95);
+            backdrop-filter: blur(10px);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+            z-index: 1000;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #61b7ff;
+        }
+
+        .menu-btn {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(5, 29, 50, 0.72),
+                    rgba(5, 29, 50, 0.72)
+                ),
+                url("hero.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 120px 20px 80px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 82px);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #65bdff;
+        }
+
+        .hero p {
+            font-size: clamp(18px, 2.5vw, 25px);
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 28px;
+            border-radius: 50px;
+
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #168ee8;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0c76c6;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #12395a;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: #168ee8;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            margin-top: 10px;
+            color: #12395a;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 15px auto 0;
+            color: #65788b;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #f6f9fc;
+            border-radius: 18px;
+            padding: 35px 28px;
+
+            text-align: center;
+
+            border: 1px solid #e2ebf3;
+
+            transition: 0.35s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(15, 64, 100, 0.12);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #dff1ff;
+            color: #168ee8;
+
+            font-size: 30px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            color: #12395a;
+        }
+
+        .service-card p {
+            color: #65788b;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #eef5fa;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .about-text span {
+            color: #168ee8;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            color: #12395a;
+            margin: 12px 0 20px;
+        }
+
+        .about-text p {
+            color: #61768a;
+            margin-bottom: 18px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .about-list li {
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #294b67;
+        }
+
+        .about-list li::before {
+            content: "✓";
+            color: #168ee8;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            padding: 25px;
+
+            color: white;
+
+            background: linear-gradient(
+                transparent,
+                rgba(5, 29, 50, 0.9)
+            );
+
+            opacity: 0;
+            transition: 0.35s;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
 
-<title>Reformas Mari&Luis S.L. | Tu proyecto, nuestra pasión</title>
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
 
-<meta name="description" content="Reformas Mari&Luis S.L. Especialistas en reformas, obras, interiores y proyectos de construcción. Tu proyecto, nuestra pasión.">
+        .project-overlay h3 {
+            font-size: 23px;
+        }
 
-<style>
+        /* =========================
+           BEFORE / AFTER
+        ========================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        .comparison {
+            background: #eef5fa;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        .comparison-container {
+            max-width: 1100px;
+            margin: auto;
+        }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #07111f;
-    color: #ffffff;
-    line-height: 1.6;
-}
+        .before-after-image {
+            position: relative;
 
+            width: 100%;
+            aspect-ratio: 16 / 9;
 
-/* =========================
-   GENERAL
-========================= */
+            overflow: hidden;
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+            background: #0d2034;
 
-section {
-    padding: 90px 0;
-}
+            border-radius: 20px;
 
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
+            cursor: ew-resize;
 
-.section-title h2 {
-    font-size: 42px;
-    margin-bottom: 12px;
-}
+            user-select: none;
+            touch-action: none;
 
-.section-title p {
-    color: #aebdce;
-    font-size: 18px;
-}
+            box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+        }
 
+        .before-after-image img {
+            position: absolute;
 
-/* =========================
-   HEADER
-========================= */
+            inset: 0;
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+            width: 100%;
+            height: 100%;
 
-    background: rgba(5, 15, 28, 0.92);
+            object-fit: cover;
 
-    backdrop-filter: blur(12px);
+            pointer-events: none;
+        }
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+        /* ANTES → izquierda */
+        .before-image {
+            z-index: 1;
+        }
 
-.navbar {
-    height: 78px;
+        /* DESPUÉS → derecha */
+        .after-image {
+            z-index: 2;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+            clip-path: inset(0 0 0 50%);
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
+        /* Barra */
+        .before-after-slider {
+            position: absolute;
 
-    gap: 12px;
+            top: 0;
+            bottom: 0;
+            left: 50%;
 
-    text-decoration: none;
+            width: 4px;
 
-    color: white;
+            background: white;
 
-    font-size: 19px;
-    font-weight: bold;
-}
+            transform: translateX(-50%);
 
-.logo-mark {
-    width: 42px;
-    height: 42px;
+            z-index: 5;
 
-    border-radius: 11px;
+            pointer-events: none;
+        }
 
-    overflow: hidden;
+        /* Botón */
+        .slider-button {
+            position: absolute;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            top: 50%;
+            left: 50%;
 
-    background: white;
+            width: 50px;
+            height: 50px;
 
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translate(-50%, -50%);
 
-    flex-shrink: 0;
-}
+            border-radius: 50%;
 
-.logo-mark img {
-    width: 100%;
-    height: 100%;
+            background: white;
+            color: #12395a;
 
-    object-fit: cover;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.nav-links {
-    display: flex;
+            font-size: 21px;
+            font-weight: bold;
 
-    gap: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+        }
 
-    list-style: none;
-}
+        .comparison-label {
+            position: absolute;
 
-.nav-links a {
-    color: #dce8f5;
+            top: 20px;
 
-    text-decoration: none;
+            padding: 8px 15px;
 
-    font-weight: 500;
+            border-radius: 30px;
 
-    transition: 0.3s;
-}
+            background: rgba(0,0,0,0.65);
 
-.nav-links a:hover {
-    color: #4da3ff;
-}
+            color: white;
 
+            font-size: 13px;
+            font-weight: bold;
 
-/* =========================
-   HAMBURGUESA
-========================= */
+            z-index: 6;
 
-.menu-toggle {
-    display: none;
+            pointer-events: none;
+        }
 
-    font-size: 30px;
+        .label-before {
+            left: 20px;
+        }
 
-    cursor: pointer;
+        .label-after {
+            right: 20px;
+        }
 
-    color: white;
-}
+        /* =========================
+           WHY US
+        ========================= */
 
+        .why-us {
+            background: white;
+        }
 
-/* =========================
-   HERO
-========================= */
+        .why-grid {
+            max-width: 1100px;
+            margin: auto;
 
-.hero {
-    min-height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
 
-    display: flex;
-    align-items: center;
+        .why-card {
+            text-align: center;
+            padding: 25px;
+        }
 
-    position: relative;
+        .why-number {
+            font-size: 45px;
+            font-weight: bold;
+            color: #168ee8;
+            margin-bottom: 5px;
+        }
 
-    overflow: hidden;
+        .why-card h3 {
+            color: #12395a;
+            margin-bottom: 8px;
+        }
 
-    background:
-        linear-gradient(
-            rgba(3, 12, 24, 0.72),
-            rgba(3, 12, 24, 0.88)
-        ),
-        url("hero.jpg");
+        .why-card p {
+            color: #718496;
+            font-size: 14px;
+        }
 
-    background-size: cover;
+        /* =========================
+           CTA
+        ========================= */
 
-    background-position: center;
-}
+        .cta {
+            padding: 90px 7%;
 
-.hero-content {
-    max-width: 800px;
+            background:
+                linear-gradient(
+                    rgba(8, 49, 82, 0.94),
+                    rgba(8, 49, 82, 0.94)
+                ),
+                url("hero.jpg");
 
-    padding-top: 70px;
-}
+            background-size: cover;
+            background-position: center;
 
-.hero h1 {
-    font-size: clamp(45px, 7vw, 82px);
+            text-align: center;
+            color: white;
+        }
 
-    line-height: 1.05;
+        .cta h2 {
+            font-size: clamp(30px, 5vw, 52px);
+            margin-bottom: 15px;
+        }
 
-    margin-bottom: 25px;
-}
+        .cta p {
+            max-width: 700px;
+            margin: auto auto 30px;
+            color: #d6e8f6;
+        }
 
-.hero h1 span {
-    color: #3fa7ff;
-}
+        /* =========================
+           CONTACT
+        ========================= */
 
-.hero p {
-    font-size: 21px;
+        .contact {
+            background: #f5f8fb;
+        }
 
-    color: #c6d4e4;
+        .contact-grid {
+            max-width: 1000px;
+            margin: auto;
 
-    margin-bottom: 35px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
 
-    max-width: 650px;
-}
+        .contact-card {
+            background: white;
+            padding: 30px;
 
-.btn {
-    display: inline-block;
+            border-radius: 18px;
 
-    padding: 15px 28px;
+            text-align: center;
 
-    border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
 
-    background: #168cff;
+        .contact-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
 
-    color: white;
+        .contact-card h3 {
+            color: #12395a;
+            margin-bottom: 8px;
+        }
 
-    text-decoration: none;
+        .contact-card p {
+            color: #64798c;
+            word-break: break-word;
+        }
 
-    font-weight: bold;
+        .contact-card a {
+            color: #168ee8;
+        }
 
-    transition: 0.3s;
+        /* =========================
+           FOOTER
+        ========================= */
 
-    margin-right: 10px;
-}
+        footer {
+            background: #08253f;
+            color: #c5d8e7;
 
-.btn:hover {
-    transform: translateY(-3px);
+            padding: 50px 7% 25px;
+        }
 
-    background: #0878df;
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
 
-    box-shadow:
-        0 10px 30px rgba(22,140,255,0.25);
-}
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
 
-.btn-secondary {
-    background: transparent;
+        .footer-brand {
+            max-width: 400px;
+        }
 
-    border: 1px solid rgba(255,255,255,0.25);
-}
+        .footer-brand h3 {
+            color: white;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
 
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.08);
-}
+        .footer-brand p {
+            color: #a9c0d2;
+        }
 
+        footer h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
 
-/* =========================
-   SERVICIOS
-========================= */
+        .footer-links {
+            list-style: none;
+        }
 
-.services {
-    background: #091827;
-}
+        .footer-links li {
+            margin-bottom: 8px;
+        }
 
-.services-grid {
-    display: grid;
+        .footer-links a:hover {
+            color: white;
+        }
 
-    grid-template-columns: repeat(3, 1fr);
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
 
-    gap: 25px;
-}
+            padding-top: 20px;
 
-.service-card {
-    background: #0d2034;
+            border-top: 1px solid rgba(255,255,255,0.12);
 
-    border: 1px solid rgba(255,255,255,0.07);
+            text-align: center;
 
-    border-radius: 18px;
+            font-size: 13px;
+            color: #91a9bb;
+        }
 
-    padding: 35px;
+        /* =========================
+           WHATSAPP
+        ========================= */
 
-    transition: 0.35s;
-}
+        .whatsapp {
+            position: fixed;
 
-.service-card:hover {
-    transform: translateY(-8px);
+            right: 25px;
+            bottom: 25px;
 
-    border-color: rgba(63,167,255,0.4);
+            width: 60px;
+            height: 60px;
 
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.25);
-}
+            border-radius: 50%;
 
-.service-icon {
-    font-size: 42px;
+            background: #25d366;
+            color: white;
 
-    margin-bottom: 20px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.service-card h3 {
-    font-size: 23px;
+            font-size: 29px;
 
-    margin-bottom: 12px;
-}
+            box-shadow: 0 7px 25px rgba(0,0,0,0.2);
 
-.service-card p {
-    color: #aebdce;
-}
+            z-index: 900;
 
+            transition: 0.3s;
+        }
 
-/* =========================
-   NOSOTROS
-========================= */
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
 
-.about {
-    background: #07111f;
-}
+        /* =========================
+           LIGHTBOX
+        ========================= */
 
-.about-grid {
-    display: grid;
+        .lightbox {
+            position: fixed;
 
-    grid-template-columns: 1fr 1fr;
+            inset: 0;
 
-    gap: 60px;
+            background: rgba(0,0,0,0.9);
 
-    align-items: center;
-}
+            display: none;
 
-.about-image {
-    width: 100%;
+            align-items: center;
+            justify-content: center;
 
-    aspect-ratio: 1894 / 1347;
+            z-index: 2000;
 
-    border-radius: 22px;
+            padding: 30px;
+        }
 
-    overflow: hidden;
+        .lightbox.active {
+            display: flex;
+        }
 
-    background: #0d2034;
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
 
-    border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+        }
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.35);
-}
+        .lightbox-close {
+            position: absolute;
 
-.about-image img {
-    width: 100%;
-    height: 100%;
+            top: 20px;
+            right: 30px;
 
-    display: block;
+            color: white;
 
-    object-fit: cover;
+            font-size: 40px;
 
-    object-position: center;
-}
+            cursor: pointer;
+        }
 
-.about-text h2 {
-    font-size: 42px;
+        /* =========================
+           REVEAL
+        ========================= */
 
-    margin-bottom: 20px;
-}
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
 
-.about-text p {
-    color: #b7c6d6;
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
 
-    margin-bottom: 18px;
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    font-size: 17px;
-}
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
-.about-list {
-    list-style: none;
+        @media (max-width: 900px) {
 
-    margin-top: 25px;
-}
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-.about-list li {
-    margin-bottom: 12px;
+            .about-container {
+                grid-template-columns: 1fr;
+            }
 
-    color: #dce8f5;
-}
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-.about-list li::before {
-    content: "✓";
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
-    color: #3fa7ff;
+        @media (max-width: 700px) {
 
-    font-weight: bold;
+            nav {
+                height: 65px;
+            }
 
-    margin-right: 10px;
-}
+            .nav-logo {
+                font-size: 16px;
+            }
 
+            .nav-logo img {
+                width: 40px;
+                height: 40px;
+            }
 
-/* =========================
-   PROYECTOS
-========================= */
+            .menu-btn {
+                display: block;
+            }
 
-.projects {
-    background: #091827;
-}
+            .nav-links {
+                position: absolute;
 
-.gallery {
-    display: grid;
+                top: 65px;
+                left: 0;
 
-    grid-template-columns: repeat(3, 1fr);
+                width: 100%;
 
-    gap: 20px;
-}
+                background: #08253f;
 
-.gallery-item {
-    height: 300px;
+                flex-direction: column;
 
-    border-radius: 18px;
+                gap: 0;
 
-    overflow: hidden;
+                display: none;
+            }
 
-    cursor: pointer;
+            .nav-links.active {
+                display: flex;
+            }
 
-    position: relative;
+            .nav-links li {
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
 
-    border: 1px solid rgba(255,255,255,0.07);
-}
+            .nav-links a {
+                display: block;
+                padding: 15px 7%;
+            }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
+            section {
+                padding: 70px 5%;
+            }
 
-    object-fit: cover;
+            .services-grid,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
 
-    transition: 0.5s;
-}
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
 
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
+            .about-text h2 {
+                font-size: 34px;
+            }
 
-.gallery-item::after {
-    content: "Ver proyecto";
+            .about-image img {
+                height: 350px;
+            }
 
-    position: absolute;
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
 
-    inset: 0;
+            .hero {
+                min-height: 90vh;
+            }
 
-    display: flex;
+            .whatsapp {
+                width: 55px;
+                height: 55px;
 
-    align-items: center;
-    justify-content: center;
+                right: 18px;
+                bottom: 18px;
+            }
+        }
 
-    background: rgba(0,0,0,0.45);
+        @media (max-width: 450px) {
 
-    opacity: 0;
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
 
-    transition: 0.3s;
+            .hero-buttons {
+                flex-direction: column;
+            }
 
-    font-weight: bold;
-}
+            .hero-buttons .btn {
+                width: 100%;
+            }
 
-.gallery-item:hover::after {
-    opacity: 1;
-}
+            .comparison-label {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
 
+            .slider-button {
+                width: 42px;
+                height: 42px;
+                font-size: 17px;
+            }
+        }
 
-/* =========================
-   ANTES Y DESPUÉS
-========================= */
-
-.before-after {
-    background: #07111f;
-}
-
-.before-after-container {
-    max-width: 1000px;
-
-    margin: auto;
-
-    position: relative;
-
-    border-radius: 22px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,0.45);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    user-select: none;
-
-    touch-action: none;
-}
-
-.before-after-image {
-    position: relative;
-
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    overflow: hidden;
-
-    background: #0d2034;
-
-    cursor: ew-resize;
-}
-
-/* Las dos imágenes ocupan exactamente el mismo espacio */
-
-.before-after-image img {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    pointer-events: none;
-}
-
-/* ANTES = imagen inferior */
-
-.before-image {
-    z-index: 1;
-}
-
-/* DESPUÉS = imagen superior que se recorta */
-
-.after-image {
-    z-index: 2;
-
-    clip-path: inset(0 50% 0 0);
-}
-
-
-/* =========================
-   ETIQUETAS
-========================= */
-
-.before-after-label {
-    position: absolute;
-
-    top: 20px;
-
-    padding: 9px 15px;
-
-    border-radius: 8px;
-
-    background: rgba(0,0,0,0.65);
-
-    backdrop-filter: blur(8px);
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    letter-spacing: 0.5px;
-
-    z-index: 20;
-
-    pointer-events: none;
-}
-
-.before-label {
-    left: 20px;
-}
-
-.after-label {
-    right: 20px;
-}
-
-
-/* =========================
-   BARRA
-========================= */
-
-.before-after-slider {
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    left: 50%;
-
-    width: 4px;
-
-    background: white;
-
-    transform: translateX(-50%);
-
-    z-index: 30;
-
-    cursor: ew-resize;
-
-    box-shadow:
-        0 0 12px rgba(0,0,0,0.5);
-
-    pointer-events: none;
-}
-
-.before-after-slider::before {
-    content: "↔";
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    width: 52px;
-    height: 52px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: #168cff;
-
-    color: white;
-
-    font-size: 22px;
-
-    font-weight: bold;
-
-    border: 3px solid white;
-
-    box-shadow:
-        0 5px 25px rgba(0,0,0,0.4);
-}
-
-
-/* =========================
-   INFORMACIÓN
-========================= */
-
-.before-after-info {
-    text-align: center;
-
-    margin-top: 25px;
-}
-
-.before-after-info p {
-    color: #aebdce;
-
-    font-size: 16px;
-}
-
-
-/* =========================
-   POR QUÉ NOSOTROS
-========================= */
-
-.why {
-    background: #07111f;
-}
-
-.why-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-.why-card {
-    padding: 30px;
-
-    text-align: center;
-
-    background: #0d2034;
-
-    border-radius: 18px;
-
-    border: 1px solid rgba(255,255,255,0.06);
-}
-
-.why-card .number {
-    font-size: 40px;
-
-    margin-bottom: 15px;
-}
-
-.why-card h3 {
-    margin-bottom: 10px;
-}
-
-.why-card p {
-    color: #aebdce;
-}
-
-
-/* =========================
-   CTA
-========================= */
-
-.cta {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(13,100,180,0.85),
-            rgba(5,31,59,0.95)
-        );
-
-    text-align: center;
-}
-
-.cta h2 {
-    font-size: 48px;
-
-    margin-bottom: 15px;
-}
-
-.cta p {
-    color: #d9e8f7;
-
-    font-size: 19px;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================
-   CONTACTO
-========================= */
-
-.contact {
-    background: #091827;
-}
-
-.contact-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 30px;
-}
-
-.contact-card {
-    background: #0d2034;
-
-    padding: 35px;
-
-    border-radius: 18px;
-
-    border: 1px solid rgba(255,255,255,0.06);
-}
-
-.contact-card h3 {
-    margin-bottom: 20px;
-
-    font-size: 25px;
-}
-
-.contact-info {
-    list-style: none;
-}
-
-.contact-info li {
-    margin-bottom: 18px;
-
-    color: #c7d5e3;
-}
-
-.contact-info strong {
-    color: white;
-}
-
-.contact-info a {
-    color: #c7d5e3;
-
-    text-decoration: none;
-
-    transition: 0.3s;
-}
-
-.contact-info a:hover {
-    color: #4da3ff;
-}
-
-.contact-info .whatsapp-link {
-    color: #25D366;
-}
-
-.contact-info .whatsapp-link:hover {
-    color: #5ee78d;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #040b14;
-
-    padding: 30px 0;
-
-    text-align: center;
-
-    color: #8fa1b3;
-}
-
-footer strong {
-    color: white;
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp {
-    position: fixed;
-
-    right: 25px;
-    bottom: 25px;
-
-    width: 62px;
-    height: 62px;
-
-    border-radius: 50%;
-
-    background: #25D366;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.35);
-
-    z-index: 999;
-
-    transition: 0.3s;
-}
-
-.whatsapp:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp svg {
-    width: 34px;
-    height: 34px;
-
-    fill: white;
-}
-
-
-/* =========================
-   LIGHTBOX
-========================= */
-
-.lightbox {
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0,0,0,0.92);
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    z-index: 2000;
-
-    padding: 30px;
-}
-
-.lightbox.active {
-    display: flex;
-}
-
-.lightbox img {
-    max-width: 90%;
-    max-height: 85vh;
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,0.6);
-}
-
-.lightbox-close {
-    position: absolute;
-
-    top: 20px;
-    right: 30px;
-
-    font-size: 45px;
-
-    color: white;
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   ANIMACIONES
-========================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(35px);
-
-    transition: 0.8s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-
-    .services-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .why-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-width: 700px) {
-
-    section {
-        padding: 70px 0;
-    }
-
-    .navbar {
-        height: 70px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        position: absolute;
-
-        top: 70px;
-        left: 0;
-
-        width: 100%;
-
-        flex-direction: column;
-
-        gap: 0;
-
-        background: #07111f;
-
-        display: none;
-
-        border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav-links a {
-        display: block;
-
-        padding: 18px 5%;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .why-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .hero .btn {
-        margin-bottom: 10px;
-    }
-
-    .section-title h2,
-    .about-text h2 {
-        font-size: 34px;
-    }
-
-    .cta h2 {
-        font-size: 36px;
-    }
-
-    .whatsapp {
-        width: 58px;
-        height: 58px;
-
-        right: 18px;
-        bottom: 18px;
-    }
-
-    .before-after-label {
-        top: 12px;
-
-        padding: 7px 10px;
-
-        font-size: 11px;
-    }
-
-    .before-label {
-        left: 12px;
-    }
-
-    .after-label {
-        right: 12px;
-    }
-
-    .before-after-slider {
-        width: 3px;
-    }
-
-    .before-after-slider::before {
-        width: 42px;
-        height: 42px;
-
-        font-size: 18px;
-    }
-}
-
-</style>
+    </style>
 </head>
-
 
 <body>
 
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
-<!-- =========================
-     HEADER
-========================= -->
+    <nav>
 
-<header>
-
-    <div class="container navbar">
-
-        <a href="#inicio" class="logo">
-
-            <div class="logo-mark">
-
-                <img
-                    src="logo.png"
-                    alt="Logo Reformas Mari&Luis"
-                >
-
-            </div>
-
-            Reformas Mari&Luis S.L.
-
+        <a href="#inicio" class="nav-logo">
+            <img src="logo.png" alt="Reformas Mari&Luis S.L.">
+            <span>Reformas Mari&Luis</span>
         </a>
 
-
-        <div class="menu-toggle" id="menuToggle">
+        <div class="menu-btn" id="menuBtn">
             ☰
         </div>
 
-
         <ul class="nav-links" id="navLinks">
-
-            <li>
-                <a href="#inicio">
-                    Inicio
-                </a>
-            </li>
-
-            <li>
-                <a href="#servicios">
-                    Servicios
-                </a>
-            </li>
-
-            <li>
-                <a href="#nosotros">
-                    Nosotros
-                </a>
-            </li>
-
-            <li>
-                <a href="#proyectos">
-                    Proyectos
-                </a>
-            </li>
-
-            <li>
-                <a href="#antes-despues">
-                    Antes y después
-                </a>
-            </li>
-
-            <li>
-                <a href="#contacto">
-                    Contacto
-                </a>
-            </li>
-
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#comparacion">Antes / Después</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
 
-    </div>
-
-</header>
+    </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
-<section class="hero" id="inicio">
-
-    <div class="container">
+    <section class="hero" id="inicio">
 
         <div class="hero-content reveal">
 
             <h1>
-
-                Transformamos espacios.<br>
-
-                <span>
-                    Creamos hogares.
-                </span>
-
+                Reformas
+                <span>Mari&Luis</span>
             </h1>
 
-
             <p>
-
-                En Reformas Mari&Luis S.L. convertimos tus ideas
-                en proyectos reales, cuidando cada detalle.
-
+                Tu proyecto, nuestra pasión
             </p>
 
+            <div class="hero-buttons">
 
-            <a
-                href="#contacto"
-                class="btn"
-            >
-                Solicitar presupuesto
-            </a>
+                <a href="#contacto" class="btn btn-primary">
+                    Solicitar presupuesto
+                </a>
 
+                <a href="#proyectos" class="btn btn-secondary">
+                    Ver proyectos
+                </a>
 
-            <a
-                href="#proyectos"
-                class="btn btn-secondary"
-            >
-                Ver proyectos
-            </a>
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     SERVICIOS
-========================= -->
+    <!-- =========================
+         SERVICIOS
+    ========================= -->
 
-<section
-    class="services"
-    id="servicios"
->
-
-    <div class="container">
+    <section class="services" id="servicios">
 
         <div class="section-title reveal">
+
+            <span>Qué hacemos</span>
 
             <h2>
                 Nuestros servicios
             </h2>
 
             <p>
-                Soluciones profesionales para todo tipo de reformas.
+                Nos encargamos de transformar tus ideas en espacios
+                pensados para disfrutar durante muchos años.
             </p>
 
         </div>
 
 
         <div class="services-grid">
-
 
             <div class="service-card reveal">
 
@@ -1233,62 +1057,8 @@ footer strong {
                 </h3>
 
                 <p>
-                    Nos encargamos de transformar completamente
-                    tu vivienda, local o espacio.
-                </p>
-
-            </div>
-
-
-            <div class="service-card reveal">
-
-                <div class="service-icon">
-                    🔨
-                </div>
-
-                <h3>
-                    Albañilería
-                </h3>
-
-                <p>
-                    Trabajos de albañilería realizados con precisión
-                    y materiales de calidad.
-                </p>
-
-            </div>
-
-
-            <div class="service-card reveal">
-
-                <div class="service-icon">
-                    🎨
-                </div>
-
-                <h3>
-                    Pintura y acabados
-                </h3>
-
-                <p>
-                    Acabados cuidados para conseguir el resultado
-                    que tienes en mente.
-                </p>
-
-            </div>
-
-
-            <div class="service-card reveal">
-
-                <div class="service-icon">
-                    🚿
-                </div>
-
-                <h3>
-                    Baños
-                </h3>
-
-                <p>
-                    Renovación y modernización de baños adaptados
-                    a tus necesidades.
+                    Renovamos completamente tu vivienda,
+                    coordinando cada parte del proyecto.
                 </p>
 
             </div>
@@ -1305,8 +1075,8 @@ footer strong {
                 </h3>
 
                 <p>
-                    Diseñamos y reformamos cocinas funcionales,
-                    modernas y personalizadas.
+                    Diseñamos y renovamos cocinas funcionales,
+                    modernas y adaptadas a tus necesidades.
                 </p>
 
             </div>
@@ -1315,47 +1085,92 @@ footer strong {
             <div class="service-card reveal">
 
                 <div class="service-icon">
-                    🏢
+                    🚿
                 </div>
 
                 <h3>
-                    Locales y negocios
+                    Baños
                 </h3>
 
                 <p>
-                    Reformas para negocios y espacios profesionales
-                    preparados para empezar a trabajar.
+                    Transformamos baños antiguos en espacios
+                    modernos, cómodos y prácticos.
                 </p>
 
             </div>
 
 
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    🧱
+                </div>
+
+                <h3>
+                    Albañilería
+                </h3>
+
+                <p>
+                    Trabajos de albañilería realizados cuidando
+                    cada detalle y acabado.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    💡
+                </div>
+
+                <h3>
+                    Electricidad
+                </h3>
+
+                <p>
+                    Instalaciones y mejoras eléctricas para
+                    adaptar tu vivienda a tus necesidades.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Pintura y acabados
+                </h3>
+
+                <p>
+                    Pintura, acabados y pequeños detalles que
+                    hacen que una reforma marque la diferencia.
+                </p>
+
+            </div>
+
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     NOSOTROS
-========================= -->
+    <!-- =========================
+         NOSOTROS
+    ========================= -->
 
-<section
-    class="about"
-    id="nosotros"
->
+    <section class="about" id="nosotros">
 
-    <div class="container">
-
-        <div class="about-grid">
-
+        <div class="about-container">
 
             <div class="about-image reveal">
 
                 <img
                     src="nosotros.png"
-                    alt="Reformas Mari&Luis"
+                    alt="Equipo de Reformas Mari&Luis"
                 >
 
             </div>
@@ -1363,152 +1178,178 @@ footer strong {
 
             <div class="about-text reveal">
 
+                <span>Sobre nosotros</span>
+
                 <h2>
-                    Sobre nosotros
+                    Reformamos pensando en ti
                 </h2>
 
-
                 <p>
-                    En Reformas Mari&Luis S.L. trabajamos para hacer
-                    realidad los proyectos de nuestros clientes.
+                    En Reformas Mari&Luis S.L. creemos que una reforma
+                    no consiste simplemente en cambiar un espacio.
                 </p>
 
-
                 <p>
-                    Apostamos por un trabajo cuidado, cercano y
-                    profesional, prestando atención a cada detalle
-                    durante todo el proceso.
+                    Se trata de crear un lugar que encaje contigo,
+                    con tu forma de vivir y con lo que realmente necesitas.
                 </p>
 
+                <p>
+                    Trabajamos cada proyecto con dedicación,
+                    cuidando los detalles desde el primer momento
+                    hasta el último acabado.
+                </p>
 
                 <ul class="about-list">
 
                     <li>
-                        Trabajo profesional
+                        Trato cercano y personalizado
                     </li>
 
                     <li>
-                        Atención personalizada
-                    </li>
-
-                    <li>
-                        Materiales de calidad
+                        Cuidado por los detalles
                     </li>
 
                     <li>
                         Compromiso con cada proyecto
                     </li>
 
+                    <li>
+                        Soluciones adaptadas a cada cliente
+                    </li>
+
                 </ul>
 
             </div>
 
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     PROYECTOS
-========================= -->
+    <!-- =========================
+         PROYECTOS
+    ========================= -->
 
-<section
-    class="projects"
-    id="proyectos"
->
-
-    <div class="container">
+    <section class="projects" id="proyectos">
 
         <div class="section-title reveal">
 
+            <span>Nuestro trabajo</span>
+
             <h2>
-                Algunos de nuestros proyectos
+                Algunos proyectos
             </h2>
 
             <p>
-                Una pequeña muestra de nuestro trabajo.
+                Una pequeña muestra de algunos de los trabajos
+                realizados por Reformas Mari&Luis S.L.
             </p>
 
         </div>
 
 
-        <div class="gallery">
+        <div class="projects-grid">
 
-
-            <div class="gallery-item reveal">
+            <div class="project-card reveal">
 
                 <img
                     src="obra1.jpg"
                     alt="Proyecto de reforma 1"
                 >
 
+                <div class="project-overlay">
+
+                    <h3>
+                        Reforma integral
+                    </h3>
+
+                    <p>
+                        Transformación completa del espacio.
+                    </p>
+
+                </div>
+
             </div>
 
 
-            <div class="gallery-item reveal">
+            <div class="project-card reveal">
 
                 <img
                     src="obra2.jpg"
                     alt="Proyecto de reforma 2"
                 >
 
+                <div class="project-overlay">
+
+                    <h3>
+                        Renovación de vivienda
+                    </h3>
+
+                    <p>
+                        Un nuevo espacio adaptado a sus propietarios.
+                    </p>
+
+                </div>
+
             </div>
 
 
-            <div class="gallery-item reveal">
+            <div class="project-card reveal">
 
                 <img
                     src="obra3.jpg"
                     alt="Proyecto de reforma 3"
                 >
 
-            </div>
+                <div class="project-overlay">
 
+                    <h3>
+                        Reforma y acabados
+                    </h3>
+
+                    <p>
+                        Diseño, reforma y acabados finales.
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     ANTES Y DESPUÉS
-========================= -->
+    <!-- =========================
+         ANTES / DESPUÉS
+    ========================= -->
 
-<section
-    class="before-after"
-    id="antes-despues"
->
-
-    <div class="container">
-
+    <section class="comparison" id="comparacion">
 
         <div class="section-title reveal">
+
+            <span>El cambio</span>
 
             <h2>
                 Antes y después
             </h2>
 
             <p>
-                Descubre cómo transformamos los espacios.
+                Desliza la barra para descubrir la transformación.
             </p>
 
         </div>
 
 
-        <div class="before-after-container reveal">
-
+        <div class="comparison-container reveal">
 
             <div
                 class="before-after-image"
                 id="beforeAfter"
             >
 
-                <!-- IMAGEN ANTES -->
+                <!-- ANTES: IZQUIERDA -->
 
                 <img
                     src="antes.jpg"
@@ -1517,7 +1358,7 @@ footer strong {
                 >
 
 
-                <!-- IMAGEN DESPUÉS -->
+                <!-- DESPUÉS: DERECHA -->
 
                 <img
                     src="despues.jpg"
@@ -1529,79 +1370,67 @@ footer strong {
 
                 <!-- ETIQUETAS -->
 
-                <div class="before-after-label before-label">
+                <div class="comparison-label label-before">
                     ANTES
                 </div>
 
-
-                <div class="before-after-label after-label">
+                <div class="comparison-label label-after">
                     DESPUÉS
                 </div>
 
 
-                <!-- BARRA -->
+                <!-- DESLIZADOR -->
 
                 <div
                     class="before-after-slider"
-                    id="beforeAfterSlider"
-                ></div>
+                    id="slider"
+                >
 
+                    <div class="slider-button">
+                        ↔
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-
-        <div class="before-after-info reveal">
-
-            <p>
-                👆 Desliza la barra para comparar el resultado.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     POR QUÉ NOSOTROS
-========================= -->
+    <!-- =========================
+         POR QUÉ NOSOTROS
+    ========================= -->
 
-<section class="why">
-
-    <div class="container">
-
+    <section class="why-us">
 
         <div class="section-title reveal">
 
-            <h2>
-                ¿Por qué elegirnos?
-            </h2>
+            <span>Por qué elegirnos</span>
 
-            <p>
-                Queremos que tu reforma sea una experiencia sencilla.
-            </p>
+            <h2>
+                Queremos que quedes encantado
+            </h2>
 
         </div>
 
 
         <div class="why-grid">
 
-
             <div class="why-card reveal">
 
-                <div class="number">
+                <div class="why-number">
                     01
                 </div>
 
                 <h3>
-                    Experiencia
+                    Cercanía
                 </h3>
 
                 <p>
-                    Cuidamos cada proyecto desde el primer momento.
+                    Estamos disponibles para escuchar tus ideas
+                    y resolver tus dudas.
                 </p>
 
             </div>
@@ -1609,7 +1438,7 @@ footer strong {
 
             <div class="why-card reveal">
 
-                <div class="number">
+                <div class="why-number">
                     02
                 </div>
 
@@ -1618,7 +1447,8 @@ footer strong {
                 </h3>
 
                 <p>
-                    Buscamos resultados duraderos y bien terminados.
+                    Cuidamos los materiales y los acabados
+                    de cada proyecto.
                 </p>
 
             </div>
@@ -1626,7 +1456,7 @@ footer strong {
 
             <div class="why-card reveal">
 
-                <div class="number">
+                <div class="why-number">
                     03
                 </div>
 
@@ -1635,7 +1465,8 @@ footer strong {
                 </h3>
 
                 <p>
-                    Nos involucramos en cada fase de la reforma.
+                    Nos implicamos en cada reforma como si
+                    fuera nuestra propia casa.
                 </p>
 
             </div>
@@ -1643,76 +1474,73 @@ footer strong {
 
             <div class="why-card reveal">
 
-                <div class="number">
+                <div class="why-number">
                     04
                 </div>
 
                 <h3>
-                    Cercanía
+                    Confianza
                 </h3>
 
                 <p>
-                    Estamos disponibles para resolver tus dudas.
+                    Queremos que tengas tranquilidad durante
+                    todo el proceso.
                 </p>
 
             </div>
 
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     CTA
-========================= -->
+    <!-- =========================
+         CTA
+    ========================= -->
 
-<section class="cta">
+    <section class="cta">
 
-    <div class="container reveal">
-
-        <h2>
-            ¿Tienes un proyecto en mente?
-        </h2>
-
-        <p>
-            Cuéntanos tu idea y empezamos a hacerla realidad.
-        </p>
-
-        <a
-            href="#contacto"
-            class="btn"
-        >
-            Contactar
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACTO
-========================= -->
-
-<section
-    class="contact"
-    id="contacto"
->
-
-    <div class="container">
-
-
-        <div class="section-title reveal">
+        <div class="reveal">
 
             <h2>
-                Contacto
+                ¿Tienes un proyecto en mente?
             </h2>
 
             <p>
-                Estamos aquí para ayudarte con tu próximo proyecto.
+                Cuéntanos tu idea y estudiaremos cómo podemos
+                convertirla en realidad.
+            </p>
+
+            <a
+                href="https://wa.me/34664745529"
+                target="_blank"
+                class="btn btn-primary"
+            >
+                Hablar por WhatsApp
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================= -->
+
+    <section class="contact" id="contacto">
+
+        <div class="section-title reveal">
+
+            <span>Contacto</span>
+
+            <h2>
+                Hablemos de tu proyecto
+            </h2>
+
+            <p>
+                Estamos disponibles para resolver tus dudas
+                y preparar tu presupuesto.
             </p>
 
         </div>
@@ -1720,425 +1548,535 @@ footer strong {
 
         <div class="contact-grid">
 
+            <div class="contact-card reveal">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Teléfono
+                </h3>
+
+                <p>
+                    <a href="tel:+34664745529">
+                        +34 664 74 55 29
+                    </a>
+                </p>
+
+            </div>
+
 
             <div class="contact-card reveal">
 
+                <div class="contact-icon">
+                    ✉️
+                </div>
+
                 <h3>
-                    Hablemos
+                    Email
                 </h3>
 
+                <p>
+                    <a href="mailto:reformasmariyluis@gmail.com">
+                        reformasmariyluis@gmail.com
+                    </a>
+                </p>
 
-                <ul class="contact-info">
+            </div>
 
+
+            <div class="contact-card reveal">
+
+                <div class="contact-icon">
+                    💬
+                </div>
+
+                <h3>
+                    WhatsApp
+                </h3>
+
+                <p>
+                    <a
+                        href="https://wa.me/34664745529"
+                        target="_blank"
+                    >
+                        Escríbenos directamente
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <h3>
+                    Reformas Mari&Luis S.L.
+                </h3>
+
+                <p>
+                    Tu proyecto, nuestra pasión.
+                    Reformas pensadas para convertir
+                    tus ideas en espacios que disfrutar.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Navegación
+                </h4>
+
+                <ul class="footer-links">
 
                     <li>
-
-                        📞 <strong>
-                            Teléfono:
-                        </strong>
-
-                        <a
-                            href="tel:+34664745529"
-                        >
-                            +34 664 74 55 29
+                        <a href="#inicio">
+                            Inicio
                         </a>
-
                     </li>
-
 
                     <li>
-
-                        📧 <strong>
-                            Email:
-                        </strong>
-
-                        <a
-                            href="https://mail.google.com/mail/?view=cm&fs=1&to=reformasmariyluis@gmail.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            reformasmariyluis@gmail.com
+                        <a href="#servicios">
+                            Servicios
                         </a>
-
                     </li>
-
 
                     <li>
-
-                        📱 <strong>
-                            WhatsApp:
-                        </strong>
-
-                        <a
-                            class="whatsapp-link"
-                            href="https://wa.me/34664745529"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Contacta directamente con nosotros
+                        <a href="#nosotros">
+                            Nosotros
                         </a>
-
                     </li>
 
+                    <li>
+                        <a href="#proyectos">
+                            Proyectos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contacto">
+                            Contacto
+                        </a>
+                    </li>
 
                 </ul>
 
             </div>
 
 
-            <div class="contact-card reveal">
+            <div>
 
-                <h3>
-                    Tu proyecto, nuestra pasión
-                </h3>
+                <h4>
+                    Contacto
+                </h4>
 
+                <ul class="footer-links">
 
-                <p
-                    style="color:#aebdce; margin-bottom:25px;"
-                >
-                    Cuéntanos qué reforma tienes en mente,
-                    qué necesitas y qué resultado buscas.
-                </p>
+                    <li>
+                        <a href="tel:+34664745529">
+                            +34 664 74 55 29
+                        </a>
+                    </li>
 
+                    <li>
+                        <a href="mailto:reformasmariyluis@gmail.com">
+                            Email
+                        </a>
+                    </li>
 
-                <a
-                    href="https://wa.me/34664745529"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-                    Escribir por WhatsApp
-                </a>
+                    <li>
+                        <a
+                            href="https://wa.me/34664745529"
+                            target="_blank"
+                        >
+                            WhatsApp
+                        </a>
+                    </li>
+
+                </ul>
 
             </div>
 
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Reformas Mari&Luis S.L.
+            · Todos los derechos reservados.
 
         </div>
 
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP FLOTANTE
+    ========================= -->
+
+    <a
+        class="whatsapp"
+        href="https://wa.me/34664745529"
+        target="_blank"
+        aria-label="Contactar por WhatsApp"
+    >
+        ☎
+    </a>
+
+
+    <!-- =========================
+         LIGHTBOX
+    ========================= -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+    >
+
+        <div
+            class="lightbox-close"
+            id="lightboxClose"
+        >
+            ×
+        </div>
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt="Imagen ampliada"
+        >
+
     </div>
 
-</section>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           MENÚ MÓVIL
+        ========================= */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+        menuBtn.addEventListener("click", () => {
 
-<footer>
-
-    <div class="container">
-
-        <p>
-
-            © 2026
-
-            <strong>
-                Reformas Mari&Luis S.L.
-            </strong>
-
-            · Tu proyecto, nuestra pasión
-
-        </p>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================
-     WHATSAPP FLOTANTE
-========================= -->
-
-<a
-    class="whatsapp"
-    href="https://wa.me/34664745529"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Contactar por WhatsApp"
->
-
-    <svg
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-    >
-
-        <path d="M16 2.5C8.55 2.5 2.5 8.55 2.5 16c0 2.38.62 4.72 1.8 6.76L2.4 29.5l6.9-1.81A13.45 13.45 0 0 0 16 29.5c7.45 0 13.5-6.05 13.5-13.5S23.45 2.5 16 2.5zm0 24.55c-2.08 0-4.12-.56-5.9-1.62l-.42-.25-4.1 1.08 1.1-4-.27-.43A11.05 11.05 0 1 1 16 27.05zm6.08-8.29c-.33-.17-1.94-.96-2.24-1.07-.3-.11-.52-.17-.74.17-.22.33-.85 1.07-1.04 1.29-.19.22-.38.25-.71.08-.33-.17-1.39-.51-2.65-1.64-.98-.88-1.64-1.96-1.83-2.29-.19-.33-.02-.51.14-.68.15-.15.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.17-.74-1.79-1.02-2.45-.27-.65-.55-.56-.74-.57h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.14 1.33 3.36c.16.22 2.3 3.51 5.58 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.94-.79 2.21-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.39z"/>
-
-    </svg>
-
-</a>
-
-
-<!-- =========================
-     LIGHTBOX
-========================= -->
-
-<div
-    class="lightbox"
-    id="lightbox"
->
-
-    <span
-        class="lightbox-close"
-        id="lightboxClose"
-    >
-        ×
-    </span>
-
-
-    <img
-        id="lightboxImage"
-        src=""
-        alt="Proyecto ampliado"
-    >
-
-</div>
-
-
-<script>
-
-
-/* =========================
-   MENÚ MÓVIL
-========================= */
-
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-
-menuToggle.addEventListener("click", () => {
-
-    navLinks.classList.toggle("active");
-
-});
-
-
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            navLinks.classList.remove("active");
+            navLinks.classList.toggle("active");
 
         });
 
-    });
 
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
 
-/* =========================
-   SCROLL REVEAL
-========================= */
+                link.addEventListener("click", () => {
 
-const reveals =
-    document.querySelectorAll(".reveal");
+                    navLinks.classList.remove("active");
 
-
-const observer =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(entry.target);
-
-                }
+                });
 
             });
 
-        },
 
-        {
-            threshold: 0.12
+        /* =========================
+           ANTES / DESPUÉS
+        ========================= */
+
+        const beforeAfter =
+            document.getElementById("beforeAfter");
+
+        const afterImage =
+            document.getElementById("afterImage");
+
+        const slider =
+            document.getElementById("slider");
+
+        let dragging = false;
+
+
+        function updateBeforeAfter(clientX) {
+
+            const rect =
+                beforeAfter.getBoundingClientRect();
+
+
+            let position =
+                ((clientX - rect.left) / rect.width) * 100;
+
+
+            position =
+                Math.max(
+                    0,
+                    Math.min(100, position)
+                );
+
+
+            /*
+                ANTES queda a la izquierda.
+
+                DESPUÉS queda a la derecha.
+
+                El clip empieza en "position".
+            */
+
+            afterImage.style.clipPath =
+                `inset(0 0 0 ${position}%)`;
+
+
+            slider.style.left =
+                `${position}%`;
+
         }
 
-    );
 
+        /* Empezar */
 
-reveals.forEach(element => {
+        beforeAfter.addEventListener(
+            "pointerdown",
+            event => {
 
-    observer.observe(element);
+                dragging = true;
 
-});
+                beforeAfter.setPointerCapture(
+                    event.pointerId
+                );
 
+                updateBeforeAfter(
+                    event.clientX
+                );
 
-/* =========================
-   LIGHTBOX
-========================= */
+            }
+        );
 
-const galleryItems =
-    document.querySelectorAll(".gallery-item");
 
-const lightbox =
-    document.getElementById("lightbox");
+        /* Mover */
 
-const lightboxImage =
-    document.getElementById("lightboxImage");
+        beforeAfter.addEventListener(
+            "pointermove",
+            event => {
 
-const lightboxClose =
-    document.getElementById("lightboxClose");
+                if (!dragging) return;
 
+                updateBeforeAfter(
+                    event.clientX
+                );
 
-galleryItems.forEach(item => {
+            }
+        );
 
-    item.addEventListener("click", () => {
 
-        const image =
-            item.querySelector("img");
+        /* Soltar */
 
-        lightboxImage.src =
-            image.src;
+        beforeAfter.addEventListener(
+            "pointerup",
+            event => {
 
-        lightbox.classList.add("active");
+                dragging = false;
 
-    });
+                try {
 
-});
+                    beforeAfter.releasePointerCapture(
+                        event.pointerId
+                    );
 
+                } catch (error) {}
 
-lightboxClose.addEventListener("click", () => {
+            }
+        );
 
-    lightbox.classList.remove("active");
 
-});
+        /* Cancelar */
 
+        beforeAfter.addEventListener(
+            "pointercancel",
+            () => {
 
-lightbox.addEventListener("click", event => {
+                dragging = false;
 
-    if (event.target === lightbox) {
+            }
+        );
 
-        lightbox.classList.remove("active");
 
-    }
+        /* Posición inicial */
 
-});
+        function setInitialComparison() {
 
+            const rect =
+                beforeAfter.getBoundingClientRect();
 
-document.addEventListener("keydown", event => {
 
-    if (event.key === "Escape") {
+            updateBeforeAfter(
+                rect.left +
+                rect.width * 0.5
+            );
 
-        lightbox.classList.remove("active");
+        }
 
-    }
 
-});
+        window.addEventListener(
+            "load",
+            setInitialComparison
+        );
 
 
-/* =========================
-   ANTES Y DESPUÉS
-========================= */
+        window.addEventListener(
+            "resize",
+            setInitialComparison
+        );
 
-const beforeAfter =
-    document.getElementById("beforeAfter");
 
-const afterImage =
-    document.getElementById("afterImage");
+        /* =========================
+           LIGHTBOX
+        ========================= */
 
-const slider =
-    document.getElementById("beforeAfterSlider");
+        const lightbox =
+            document.getElementById("lightbox");
 
+        const lightboxImage =
+            document.getElementById("lightboxImage");
 
-let dragging = false;
+        const lightboxClose =
+            document.getElementById("lightboxClose");
 
 
-/* =========================
-   ACTUALIZAR POSICIÓN
-========================= */
+        document
+            .querySelectorAll(".project-card img")
+            .forEach(image => {
 
-function updateBeforeAfter(clientX) {
+                image.addEventListener(
+                    "click",
+                    () => {
 
-    const rect =
-        beforeAfter.getBoundingClientRect();
+                        lightboxImage.src =
+                            image.src;
 
-    let position =
-        ((clientX - rect.left) / rect.width) * 100;
+                        lightboxImage.alt =
+                            image.alt;
 
-    position =
-        Math.max(0, Math.min(100, position));
+                        lightbox.classList.add(
+                            "active"
+                        );
 
+                    }
+                );
 
-    /*
-       La imagen DESPUÉS se muestra
-       desde la izquierda hasta la posición.
-    */
+            });
 
-    afterImage.style.clipPath =
-        `inset(0 ${100 - position}% 0 0)`;
 
+        lightboxClose.addEventListener(
+            "click",
+            () => {
 
-    slider.style.left =
-        `${position}%`;
+                lightbox.classList.remove(
+                    "active"
+                );
 
-}
+            }
+        );
 
 
-/* =========================
-   POINTER EVENTS
-   Ratón + móvil + tablet
-========================= */
+        lightbox.addEventListener(
+            "click",
+            event => {
 
-beforeAfter.addEventListener("pointerdown", event => {
+                if (
+                    event.target === lightbox
+                ) {
 
-    dragging = true;
+                    lightbox.classList.remove(
+                        "active"
+                    );
 
-    beforeAfter.setPointerCapture(event.pointerId);
+                }
 
-    updateBeforeAfter(event.clientX);
+            }
+        );
 
-});
 
+        document.addEventListener(
+            "keydown",
+            event => {
 
-beforeAfter.addEventListener("pointermove", event => {
+                if (
+                    event.key === "Escape"
+                ) {
 
-    if (!dragging) return;
+                    lightbox.classList.remove(
+                        "active"
+                    );
 
-    updateBeforeAfter(event.clientX);
+                }
 
-});
+            }
+        );
 
 
-beforeAfter.addEventListener("pointerup", event => {
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
 
-    dragging = false;
+        const revealElements =
+            document.querySelectorAll(".reveal");
 
-    try {
-        beforeAfter.releasePointerCapture(event.pointerId);
-    } catch (error) {
-        // Evita errores si el puntero ya fue liberado
-    }
 
-});
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
 
+                    entries.forEach(entry => {
 
-beforeAfter.addEventListener("pointercancel", () => {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-    dragging = false;
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-});
+                            revealObserver.unobserve(
+                                entry.target
+                            );
 
+                        }
 
-/* =========================
-   POSICIÓN INICIAL
-========================= */
+                    });
 
-updateBeforeAfter(
-    beforeAfter.getBoundingClientRect().left +
-    beforeAfter.getBoundingClientRect().width * 0.5
-);
+                },
+                {
+                    threshold: 0.12
+                }
+            );
 
 
-</script>
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+    </script>
 
 </body>
 </html>
-```
