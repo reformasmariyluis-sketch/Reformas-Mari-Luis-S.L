@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -487,6 +488,8 @@ header {
     border: 1px solid rgba(255,255,255,0.08);
 
     user-select: none;
+
+    touch-action: none;
 }
 
 .before-after-image {
@@ -499,7 +502,11 @@ header {
     overflow: hidden;
 
     background: #0d2034;
+
+    cursor: ew-resize;
 }
+
+/* Las dos imágenes ocupan exactamente el mismo espacio */
 
 .before-after-image img {
     position: absolute;
@@ -514,9 +521,24 @@ header {
     pointer-events: none;
 }
 
-.after-image {
-    clip-path: inset(0 0 0 50%);
+/* ANTES = imagen inferior */
+
+.before-image {
+    z-index: 1;
 }
+
+/* DESPUÉS = imagen superior que se recorta */
+
+.after-image {
+    z-index: 2;
+
+    clip-path: inset(0 50% 0 0);
+}
+
+
+/* =========================
+   ETIQUETAS
+========================= */
 
 .before-after-label {
     position: absolute;
@@ -537,7 +559,9 @@ header {
 
     letter-spacing: 0.5px;
 
-    z-index: 5;
+    z-index: 20;
+
+    pointer-events: none;
 }
 
 .before-label {
@@ -547,6 +571,11 @@ header {
 .after-label {
     right: 20px;
 }
+
+
+/* =========================
+   BARRA
+========================= */
 
 .before-after-slider {
     position: absolute;
@@ -562,12 +591,14 @@ header {
 
     transform: translateX(-50%);
 
-    z-index: 10;
+    z-index: 30;
 
     cursor: ew-resize;
 
     box-shadow:
         0 0 12px rgba(0,0,0,0.5);
+
+    pointer-events: none;
 }
 
 .before-after-slider::before {
@@ -604,6 +635,11 @@ header {
     box-shadow:
         0 5px 25px rgba(0,0,0,0.4);
 }
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
 
 .before-after-info {
     text-align: center;
@@ -1467,8 +1503,18 @@ footer strong {
         <div class="before-after-container reveal">
 
 
-            <div class="before-after-image"
-                 id="beforeAfter">
+            <div
+                class="before-after-image"
+                id="beforeAfter"
+            >
+
+                <!-- IMAGEN ANTES -->
+
+                <img
+                    src="antes.jpg"
+                    alt="Antes de la reforma"
+                    class="before-image"
+                >
 
 
                 <!-- IMAGEN DESPUÉS -->
@@ -1478,14 +1524,6 @@ footer strong {
                     alt="Después de la reforma"
                     class="after-image"
                     id="afterImage"
-                >
-
-
-                <!-- IMAGEN ANTES -->
-
-                <img
-                    src="antes.jpg"
-                    alt="Antes de la reforma"
                 >
 
 
@@ -1693,8 +1731,6 @@ footer strong {
                 <ul class="contact-info">
 
 
-                    <!-- TELÉFONO -->
-
                     <li>
 
                         📞 <strong>
@@ -1709,8 +1745,6 @@ footer strong {
 
                     </li>
 
-
-                    <!-- GMAIL -->
 
                     <li>
 
@@ -1728,8 +1762,6 @@ footer strong {
 
                     </li>
 
-
-                    <!-- WHATSAPP -->
 
                     <li>
 
@@ -2031,13 +2063,17 @@ function updateBeforeAfter(clientX) {
     let position =
         ((clientX - rect.left) / rect.width) * 100;
 
-
     position =
         Math.max(0, Math.min(100, position));
 
 
+    /*
+       La imagen DESPUÉS se muestra
+       desde la izquierda hasta la posición.
+    */
+
     afterImage.style.clipPath =
-        `inset(0 0 0 ${position}%)`;
+        `inset(0 ${100 - position}% 0 0)`;
 
 
     slider.style.left =
@@ -2047,24 +2083,22 @@ function updateBeforeAfter(clientX) {
 
 
 /* =========================
-   RATÓN
+   POINTER EVENTS
+   Ratón + móvil + tablet
 ========================= */
 
-slider.addEventListener("mousedown", () => {
+beforeAfter.addEventListener("pointerdown", event => {
 
     dragging = true;
 
-});
+    beforeAfter.setPointerCapture(event.pointerId);
 
-
-document.addEventListener("mouseup", () => {
-
-    dragging = false;
+    updateBeforeAfter(event.clientX);
 
 });
 
 
-document.addEventListener("mousemove", event => {
+beforeAfter.addEventListener("pointermove", event => {
 
     if (!dragging) return;
 
@@ -2073,64 +2107,38 @@ document.addEventListener("mousemove", event => {
 });
 
 
-/* =========================
-   CLIC EN LA IMAGEN
-========================= */
+beforeAfter.addEventListener("pointerup", event => {
 
-beforeAfter.addEventListener("mousedown", event => {
+    dragging = false;
 
-    updateBeforeAfter(event.clientX);
-
-    dragging = true;
+    try {
+        beforeAfter.releasePointerCapture(event.pointerId);
+    } catch (error) {
+        // Evita errores si el puntero ya fue liberado
+    }
 
 });
 
 
-/* =========================
-   MÓVIL / TÁCTIL
-========================= */
-
-slider.addEventListener("touchstart", event => {
-
-    dragging = true;
-
-    event.preventDefault();
-
-}, { passive: false });
-
-
-document.addEventListener("touchend", () => {
+beforeAfter.addEventListener("pointercancel", () => {
 
     dragging = false;
 
 });
 
 
-document.addEventListener("touchmove", event => {
+/* =========================
+   POSICIÓN INICIAL
+========================= */
 
-    if (!dragging) return;
-
-    const touch =
-        event.touches[0];
-
-    updateBeforeAfter(touch.clientX);
-
-}, { passive: false });
-
-
-beforeAfter.addEventListener("touchstart", event => {
-
-    const touch =
-        event.touches[0];
-
-    updateBeforeAfter(touch.clientX);
-
-    dragging = true;
-
-}, { passive: true });
+updateBeforeAfter(
+    beforeAfter.getBoundingClientRect().left +
+    beforeAfter.getBoundingClientRect().width * 0.5
+);
 
 
 </script>
 
 </body>
 </html>
+```
