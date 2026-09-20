@@ -1095,7 +1095,7 @@ footer strong {
             <div class="gallery-item reveal">
 
                 <img
-                    src="obra1.jpg"
+                    src="" data-photo-number="1"
                     alt="Proyecto de reforma 1"
                 >
 
@@ -1105,7 +1105,7 @@ footer strong {
             <div class="gallery-item reveal">
 
                 <img
-                    src="obra2.jpg"
+                    src="" data-photo-number="2"
                     alt="Proyecto de reforma 2"
                 >
 
@@ -1115,7 +1115,7 @@ footer strong {
             <div class="gallery-item reveal">
 
                 <img
-                    src="obra3.jpg"
+                    src="" data-photo-number="3"
                     alt="Proyecto de reforma 3"
                 >
 
@@ -1417,6 +1417,21 @@ footer strong {
 
 
 <script>
+function tryMainPhotoExtensions(image, number, extensions, index = 0) {
+    if (index >= extensions.length) {
+        return;
+    }
+
+    image.src = `obra${number}.${extensions[index]}`;
+
+    image.onerror = () => {
+        tryMainPhotoExtensions(image, number, extensions, index + 1);
+    };
+}
+
+document.querySelectorAll("[data-photo-number]").forEach(image => {
+    tryMainPhotoExtensions(image, image.dataset.photoNumber, ["jpg", "jpeg", "png"]);
+});
 
 /* =========================
    MENÚ MÓVIL
