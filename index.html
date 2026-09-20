@@ -359,83 +359,6 @@ header {
     opacity: 1;
 }
 
- .gallery-more {
-    text-align: center;
-    margin-top: 35px;
-}
-
-.gallery-more .btn {
-    border: 0;
-    cursor: pointer;
-    font: inherit;
-}
-
-.photos-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    display: none;
-    overflow-y: auto;
-    background: #111;
-    padding: 58px 24px 30px;
-}
-
-.photos-overlay.active {
-    display: block;
-}
-
-.photos-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    max-width: 1800px;
-    margin: 0 auto;
-}
-
-.photos-grid .photo-item {
-    height: 190px;
-    overflow: hidden;
-    background: #222;
-    cursor: pointer;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-}
-
-.photos-grid .photo-item img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: none;
-    transform: none;
-}
-
-.photos-grid .photo-item:hover,
-.photos-grid .photo-item:hover img {
-    transform: none;
-}
-
-.photos-close {
-    position: fixed;
-    top: 10px;
-    right: 16px;
-    z-index: 100000;
-    width: 44px;
-    height: 44px;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.12);
-    color: #fff;
-    font-size: 32px;
-    line-height: 40px;
-    cursor: pointer;
-}
-
-.photos-close:hover {
-    background: rgba(255,255,255,0.25);
-}
-
 /* =========================
    POR QUÉ NOSOTROS
 ========================= */
@@ -767,29 +690,87 @@ footer strong {
         bottom: 18px;
     }
 }
+</style>
 
-@media (max-width: 900px) {
-    .photos-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .photos-grid .photo-item {
-        height: 180px;
-    }
+<style>
+.gallery-more {
+    text-align: center;
+    margin-top: 35px;
 }
-
+.gallery-more .btn {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+}
+.photos-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    overflow-y: auto;
+    background: #111;
+    padding: 58px 24px 30px;
+}
+.photos-overlay.active {
+    display: block;
+}
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+.photos-grid .photo-item {
+    height: 190px;
+    overflow: hidden;
+    background: #222;
+    cursor: default;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+}
+.photos-grid .photo-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: none;
+    transform: none;
+}
+.photos-grid .photo-item:hover,
+.photos-grid .photo-item:hover img {
+    transform: none;
+}
+.photos-close {
+    position: fixed;
+    top: 10px;
+    right: 16px;
+    z-index: 100000;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-size: 32px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.photos-close:hover {
+    background: rgba(255,255,255,0.25);
+}
+@media (max-width: 900px) {
+    .photos-grid { grid-template-columns: repeat(3, 1fr); }
+    .photos-grid .photo-item { height: 180px; }
+}
 @media (max-width: 600px) {
-    .photos-overlay {
-        padding: 52px 8px 18px;
-    }
-    .photos-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-    .photos-grid .photo-item {
-        height: 150px;
-    }
+    .photos-overlay { padding: 52px 8px 18px; }
+    .photos-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .photos-grid .photo-item { height: 150px; }
 }
 </style>
+
 </head>
 
 <body>
@@ -1134,17 +1115,6 @@ footer strong {
 
             </div>
 
-        </div>
-
-        <div class="gallery-more reveal">
-            <button class="btn" id="showMorePhotos" type="button">
-                Ver más fotos →
-            </button>
-        </div>
-
-        <div class="photos-overlay" id="photosOverlay" aria-hidden="true">
-            <button class="photos-close" id="photosClose" type="button" aria-label="Cerrar galería">×</button>
-            <div class="photos-grid" id="photosGrid"></div>
         </div>
 
     </div>
@@ -1495,55 +1465,6 @@ reveals.forEach(element => {
 
 
 /* =========================
-   GALERÍA COMPLETA
-========================= */
-
-const showMorePhotos = document.getElementById("showMorePhotos");
-const photosOverlay = document.getElementById("photosOverlay");
-const photosClose = document.getElementById("photosClose");
-const photosGrid = document.getElementById("photosGrid");
-
-for (let i = 4; i <= 150; i++) {
-    const item = document.createElement("div");
-    item.className = "photo-item";
-
-    const image = document.createElement("img");
-    image.src = `obra${i}.jpg`;
-    image.alt = `Proyecto de reforma ${i}`;
-    image.loading = "lazy";
-
-    // No se elimina el elemento si una foto falla: la cuadrícula permanece fija.
-    image.onerror = () => {
-        image.style.visibility = "hidden";
-    };
-
-    item.appendChild(image);
-    photosGrid.appendChild(item);
-}
-
-function openPhotos() {
-    photosOverlay.classList.add("active");
-    photosOverlay.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-}
-
-function closePhotos() {
-    photosOverlay.classList.remove("active");
-    photosOverlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-}
-
-showMorePhotos.addEventListener("click", openPhotos);
-photosClose.addEventListener("click", closePhotos);
-
-document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && photosOverlay.classList.contains("active")) {
-        closePhotos();
-    }
-});
-
-
-/* =========================
    LIGHTBOX
 ========================= */
 
@@ -1599,6 +1520,64 @@ document.addEventListener("keydown", event => {
 
 });
 
+</script>
+
+
+<script>
+const showMorePhotos = document.getElementById("showMorePhotos");
+const photosOverlay = document.getElementById("photosOverlay");
+const photosClose = document.getElementById("photosClose");
+const photosGrid = document.getElementById("photosGrid");
+
+function tryImageExtensions(image, number, extensions, index = 0) {
+    if (index >= extensions.length) {
+        // Keep the tile in the grid even if none of the extensions exists.
+        image.style.visibility = "hidden";
+        return;
+    }
+
+    image.src = `obra${number}.${extensions[index]}`;
+
+    image.onerror = () => {
+        tryImageExtensions(image, number, extensions, index + 1);
+    };
+}
+
+for (let i = 4; i <= 150; i++) {
+    const item = document.createElement("div");
+    item.className = "photo-item";
+
+    const image = document.createElement("img");
+    image.alt = `Proyecto de reforma ${i}`;
+    image.loading = "lazy";
+
+    // Acepta automáticamente: .jpg, .jpeg y .png
+    tryImageExtensions(image, i, ["jpg", "jpeg", "png"]);
+
+    item.appendChild(image);
+    photosGrid.appendChild(item);
+}
+
+function openPhotos() {
+    photosOverlay.classList.add("active");
+    photosOverlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+}
+
+function closePhotos() {
+    photosOverlay.classList.remove("active");
+    photosOverlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+}
+
+showMorePhotos.addEventListener("click", openPhotos);
+photosClose.addEventListener("click", closePhotos);
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && photosOverlay.classList.contains("active")) {
+        closePhotos();
+    }
+});
 </script>
 
 </body>
